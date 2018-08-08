@@ -1,5 +1,6 @@
 # flake8: noqa
 import os
+import json
 import codecs
 
 from echarts_cities_pypkg._version import __version__
@@ -17,6 +18,7 @@ class Pypkg():
     def get_cities_in_country(self, country):
         _file = country.upper()
         _country_json = os.path.join(self.js_extension_path,
+                                     "echarts-cities-js",
                                      _file + ".json")
         if os.path.exists(_country_json):
             with codecs.open(_country_json, encoding="utf-8") as file_handle:

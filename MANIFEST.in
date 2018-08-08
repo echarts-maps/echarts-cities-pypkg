@@ -1,4 +1,4 @@
 include README.rst
 include CHANGELOG.rst
-include echarts_cities_pypkg/resources/echarts-cities-js/*.js
-include echarts_cities_pypkg/resources/registry.json
+include echarts_cities_pypkg/resources/echarts-cities-js/*.json
+

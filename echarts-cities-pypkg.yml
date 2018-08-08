@@ -10,6 +10,5 @@ copyright_year: 2018
 license: MIT
 nowheel: true
 dependencies:
-  - lml==0.0.2
-  - pyecharts-jupyter-installer==0.0.3
+  - lml>=0.0.2
 description: "Packages echarts-cities-js for pyecharts and extending dramatically the number of city coordinates."

@@ -6,16 +6,6 @@ import sys
 import codecs
 from shutil import rmtree
 from setuptools import setup, find_packages, Command
-try:
-    from pyecharts_jupyter_installer import install_cmd_for
-except ImportError:
-    import subprocess
-    import importlib
-
-    subprocess.check_call([sys.executable, '-m',
-                           'pip', 'install', 'pyecharts-jupyter-installer'])
-    install_cmd_for = importlib.import_module(
-        'pyecharts_jupyter_installer').install_cmd_for
 PY2 = sys.version_info[0] == 2
 PY26 = PY2 and sys.version_info[1] < 7
 
@@ -48,12 +38,10 @@ CLASSIFIERS = [
 ]
 
 INSTALL_REQUIRES = [
-    'lml==0.0.2',
-    'pyecharts-jupyter-installer==0.0.3',
+    'lml>=0.0.2',
 ]
-SETUP_COMMANDS = install_cmd_for(
-    'echarts-cities-pypkg',
-    'echarts_cities_pypkg/resources/echarts-cities-js')
+SETUP_COMMANDS = {}
+
 
 PACKAGES = find_packages(exclude=['ez_setup', 'examples', 'tests'])
 EXTRAS_REQUIRE = {
