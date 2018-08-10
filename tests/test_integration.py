@@ -1,6 +1,8 @@
 # coding=utf8
 from __future__ import unicode_literals
-from nose.tools import assert_dict_equal, eq_
+from nose.tools import assert_dict_equal, eq_, raises
+
+from pyecharts.exceptions import CountryNotFound
 
 from pyecharts.datasets.coordinates import (
     get_coordinate,
@@ -10,18 +12,42 @@ from pyecharts.datasets.coordinates import (
 
 
 def test_get_coordinate():
-    coordinate = get_coordinate("Oxford", "GB")
-    eq_([-1.25596, 51.75222], coordinate)
+    do_get_coordinate("GB")
 
 
-def test_get_coordinate_without_data():
-    coordinate = get_coordinate("Alien City", "Glaxy")
-    assert coordinate is None
+def test_get_coordinate_in_chinese():
+    do_get_coordinate("英国")
+
+
+@raises(CountryNotFound)
+def test_get_coordinate_from_unknown_country():
+    get_coordinate("Alien City", "Glaxy")
 
 
 def test_search_coordinates_by_country():
+    do_search_coordinates_by_country("GB")
+
+
+def test_search_coordinates_by_country_in_chinese():
     # search the city name containing '北京'
-    result = search_coordinates_by_country_and_keyword("GB", "London")
+    do_search_coordinates_by_country("英国")
+
+
+def test_advance_search_coordinates():
+    do_advance_search_coordinates("HK")
+
+
+def test_advance_search_coordinates_in_chinese():
+    do_advance_search_coordinates("香港")
+
+
+def do_get_coordinate(country):
+    coordinate = get_coordinate("Oxford", country)
+    eq_([-1.25596, 51.75222], coordinate)
+
+
+def do_search_coordinates_by_country(country):
+    result = search_coordinates_by_country_and_keyword(country, "London")
     expected = {
         "Londonderry County Borough": [-7.30917, 54.99721],
         "City of London": [-0.09184, 51.51279],
@@ -30,7 +56,7 @@ def test_search_coordinates_by_country():
     eq_(result, expected)
 
 
-def test_advance_search_coordinates():
+def do_advance_search_coordinates(country):
     result = search_coordinates_by_filter(
         func=lambda name: "Central" in name or "Hong Kong" in name,
         country="HK",
