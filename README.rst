@@ -10,12 +10,20 @@ echarts-cities-pypkg
 
 
 
-The project packages `echarts-cities-js <https://github.com/pyecharts/echarts-cities-js>`_ and distributes it via pypi.
+The project packages `echarts-cities-js <https://github.com/echarts-maps/echarts-cities-js>`_ and distributes it via pypi.
 
 Installation
 ================================================================================
 
-You can get it:
+
+You can install echarts-cities-pypkg via pip:
+
+.. code-block:: bash
+
+    $ pip install echarts-cities-pypkg
+
+
+or clone it and install it:
 
 .. code-block:: bash
 

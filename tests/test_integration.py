@@ -62,8 +62,7 @@ def do_advance_search_coordinates(region):
         region=region,
     )
     expected = {
-        "Hong Kong": [114.15769, 22.28552],
-        "Central": [114.15846, 22.28299],
+        "Hong Kong": [114.15769, 22.28552], "Central": [114.15846, 22.28299]
     }
     eq_(result, expected)
     result2 = search_coordinates_by_region_and_keyword(

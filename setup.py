@@ -10,7 +10,7 @@ PY2 = sys.version_info[0] == 2
 PY26 = PY2 and sys.version_info[1] < 7
 
 NAME = 'echarts-cities-pypkg'
-AUTHOR = 'C.W.'
+AUTHOR = 'C. W.'
 VERSION = '0.0.1'
 EMAIL = 'wangc_2011@hotmail.com'
 LICENSE = 'MIT'
@@ -19,7 +19,7 @@ DESCRIPTION = (
     'the number of city coordinates.'
 )
 URL = 'https://github.com/pyecharts/echarts-cities-pypkg'
-DOWNLOAD_URL = '%s/archive/0.0.0.tar.gz' % URL
+DOWNLOAD_URL = '%s/archive/0.0.1.tar.gz' % URL
 FILES = ['README.rst', 'CHANGELOG.rst']
 KEYWORDS = [
     'python'
@@ -49,8 +49,8 @@ EXTRAS_REQUIRE = {
 # You do not need to read beyond this line
 PUBLISH_COMMAND = '{0} setup.py sdist upload -r pypi'.format(
     sys.executable)
-GS_COMMAND = ('gs echarts-cities-pypkg v0.0.0 ' +
-              "Find 0.0.0 in changelog for more details")
+GS_COMMAND = ('gs echarts-cities-pypkg v0.0.1 ' +
+              "Find 0.0.1 in changelog for more details")
 NO_GS_MESSAGE = ('Automatic github release is disabled. ' +
                  'Please install gease to enable it.')
 UPLOAD_FAILED_MSG = (
